@@ -36,4 +36,14 @@ public class DemoTest {
         Assertions.assertEquals(savedBag,pickUpBag);
     }
 
+    @Test
+    public void should_throw_InvalidTicketException_when_locker_pick_up_bag_given_an_invalid_ticket() {
+        Locker locker = new Locker(1);
+        Ticket invalidTicket = new Ticket();
+
+        locker.save(new Bag());
+
+        Assertions.assertThrows(InvalidTicketException.class, () -> locker.pickUpBy(invalidTicket));
+    }
+
 }

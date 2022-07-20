@@ -23,6 +23,9 @@ public class Locker {
     }
 
     public Bag pickUpBy(Ticket ticket) {
+        if (!(ticket instanceof Ticket) || !bags.containsKey(ticket)) {
+            throw new InvalidTicketException();
+        }
         return bags.get(ticket);
     }
 }
