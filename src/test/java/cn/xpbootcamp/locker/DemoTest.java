@@ -14,4 +14,15 @@ public class DemoTest {
 
         Assertions.assertNotNull(ticket);
     }
+
+    @Test
+    public void should_throw_LockerIsFullException_when_save_bag_given_locker_is_full() {
+        Locker locker = new Locker(1);
+
+        locker.save(new Bag());
+
+        Assertions.assertThrows(LockerIsFullException.class, () -> locker.save(new Bag()));
+
+    }
+
 }
