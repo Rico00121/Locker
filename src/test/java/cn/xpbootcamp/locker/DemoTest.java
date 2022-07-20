@@ -25,4 +25,15 @@ public class DemoTest {
 
     }
 
+    @Test
+    public void should_return_bag_when_locker_is_given_valid_ticket() {
+        Locker locker = new Locker(1);
+        Bag savedBag = new Bag();
+        Ticket ticket = locker.save(savedBag);
+
+        Bag pickUpBag = locker.pickUpBy(ticket);
+
+        Assertions.assertEquals(savedBag,pickUpBag);
+    }
+
 }
