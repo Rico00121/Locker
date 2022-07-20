@@ -1,14 +1,17 @@
 package cn.xpbootcamp.locker;
 
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 public class DemoTest {
     //这个测试文件只是一个demo，仅供参考，提交代码时需要删除
+
     @Test
-    public void should_return_correct_number_when_calculate_given_two_numbers() {
-        Demo demo = new Demo();
-        int result = demo.calculate(1, 1);
-        Assert.assertEquals(2, result);
+    public void should_return_ticket_when_locker_save_bag_given_locker_has_available_capacity() {
+        Locker locker = new Locker(10);
+
+        Ticket ticket = locker.save(new Bag());
+
+        Assertions.assertNotNull(ticket);
     }
 }
