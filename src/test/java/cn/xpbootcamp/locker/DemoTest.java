@@ -46,4 +46,15 @@ public class DemoTest {
         Assertions.assertThrows(InvalidTicketException.class, () -> locker.pickUpBy(invalidTicket));
     }
 
+    @Test
+    public void should_throw_InvalidTicketException_when_locker_pick_up_bag_given_a_reused_ticket() {
+        Locker locker = new Locker(1);
+        Ticket ticket = locker.save(new Bag());
+
+        locker.pickUpBy(ticket);
+
+        Assertions.assertThrows(InvalidTicketException.class,() -> locker.pickUpBy(ticket));
+    }
+
+
 }
