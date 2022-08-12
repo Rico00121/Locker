@@ -3,7 +3,7 @@ package cn.xpbootcamp.locker;
 import java.util.List;
 
 public class PrimaryLockerRobot {
-    private List<Locker> lockers;
+    private final List<Locker> lockers;
     public PrimaryLockerRobot(List<Locker> lockers) {
         this.lockers = lockers;
     }
