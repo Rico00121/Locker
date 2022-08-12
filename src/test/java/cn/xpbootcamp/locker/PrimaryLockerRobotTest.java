@@ -48,4 +48,19 @@ public class PrimaryLockerRobotTest {
         Assertions.assertThrows(LockerIsFullException.class, () -> primaryLockerRobot.save(new Bag()));
 
     }
+
+    @Test
+    public void should_pick_up_bag_successfully_when_use_valid_ticket() {
+        Locker locker1 = new Locker(CAPACITY);
+        Locker locker2 = new Locker(CAPACITY);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(
+                Lists.newArrayList(locker1, locker2));
+        Bag bag = new Bag();
+        Ticket ticket = primaryLockerRobot.save(bag);
+
+        Bag returnBag = primaryLockerRobot.pickUp(ticket);
+
+        Assertions.assertEquals(bag, returnBag);
+
+    }
 }

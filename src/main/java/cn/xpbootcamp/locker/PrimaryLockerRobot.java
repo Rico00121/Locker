@@ -1,6 +1,5 @@
 package cn.xpbootcamp.locker;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PrimaryLockerRobot {
@@ -15,5 +14,13 @@ public class PrimaryLockerRobot {
                 return locker.save(bag);
         }
         throw new LockerIsFullException();
+    }
+
+    public Bag pickUp(Ticket ticket) {
+        for (Locker locker: lockers) {
+            if (locker.contains(ticket))
+                return locker.pickUpBy(ticket);
+        }
+        return null;
     }
 }

@@ -30,4 +30,8 @@ public class Locker {
     public int getAvailableCapacity() {
         return availableCapacity;
     }
+
+    public boolean contains(Ticket ticket) {
+        return bags.containsKey(ticket);
+    }
 }
