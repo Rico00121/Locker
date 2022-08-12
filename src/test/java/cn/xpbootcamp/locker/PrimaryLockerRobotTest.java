@@ -21,4 +21,21 @@ public class PrimaryLockerRobotTest {
         Assertions.assertEquals(locker1.getAvailableCapacity(), 1);
     }
 
+    @Test
+    public void should_return_ticket_and_save_in_second_locker_when_first_locker_is_full() {
+        Locker locker1 = new Locker(CAPACITY);
+        Locker locker2 = new Locker(CAPACITY);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(
+                Lists.newArrayList(locker1, locker2));
+
+        primaryLockerRobot.save(new Bag());
+        primaryLockerRobot.save(new Bag());
+        Bag bag = new Bag();
+        Ticket ticket = primaryLockerRobot.save(bag);
+
+        Assertions.assertEquals(locker1.getAvailableCapacity(), 0);
+        Assertions.assertNotNull(ticket);
+        Assertions.assertEquals(locker2.getAvailableCapacity(), 1);
+        Assertions.assertSame(locker2.pickUpBy(ticket),bag);
+    }
 }

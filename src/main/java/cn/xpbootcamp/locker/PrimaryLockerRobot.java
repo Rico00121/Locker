@@ -10,7 +10,10 @@ public class PrimaryLockerRobot {
     }
 
     public Ticket save(Bag bag) {
-        Ticket ticket = lockers.get(0).save(bag);
-        return ticket;
+        for (Locker locker : lockers) {
+            if (locker.getAvailableCapacity()>0)
+                return locker.save(bag);
+        }
+        return null;
     }
 }
