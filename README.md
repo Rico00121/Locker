@@ -27,3 +27,21 @@
 4. 给一张不合理的票，提示无效票据
 5. 给一张已经用过的票，提示无效票据
 
+
+### 需求澄清总结2：
+需求：作为一个初级储物柜机器人，我能够按储物柜的顺序来存包，也能取包
+需求澄清：
+1. PrimaryLockerRobot存包是按照locker顺序存包
+2. PrimaryLockerRobot在某个Locker内存包的位置是随机的
+3. 报错信息和Locker是一致的
+4. PrimaryLockerRobot至少管理一个Locker
+5. PrimaryLockerRobot会回收取过包的票据
+   Note：
+   在Locker的基础上继续完善，不需要重新创建仓库
+
+### tasking
+1. 管理两个Locker，当两个都有容量，存入第一个 反票
+2. 管理两个Locker，当第一个满，存如第二个 反票
+3. 管理两个Locker，当两个都没有容量，存包 失败 给提示
+4. 管理两个Locker，当拿一个有效的票，取包成功
+5. 管理两个Locker，当拿一个假的票，取保失败 提示非法票据
