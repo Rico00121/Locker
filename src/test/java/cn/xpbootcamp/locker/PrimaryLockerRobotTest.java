@@ -38,4 +38,14 @@ public class PrimaryLockerRobotTest {
         Assertions.assertSame(locker2.pickUpBy(ticket),bag);
     }
 
+    @Test
+    public void should_return_exception_when_all_lockers_is_full() {
+        Locker locker1 = new Locker(IS_FULL);
+        Locker locker2 = new Locker(IS_FULL);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(
+                Lists.newArrayList(locker1, locker2));
+
+        Assertions.assertThrows(LockerIsFullException.class, () -> primaryLockerRobot.save(new Bag()));
+
+    }
 }

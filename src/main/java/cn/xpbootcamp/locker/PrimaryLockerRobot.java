@@ -14,6 +14,6 @@ public class PrimaryLockerRobot {
             if (locker.getAvailableCapacity()>0)
                 return locker.save(bag);
         }
-        return null;
+        throw new LockerIsFullException();
     }
 }
