@@ -63,4 +63,18 @@ public class PrimaryLockerRobotTest {
         Assertions.assertEquals(bag, returnBag);
 
     }
+
+    @Test
+    public void should_throw_exception_when_use_invalid_ticket() {
+        Locker locker1 = new Locker(CAPACITY);
+        Locker locker2 = new Locker(CAPACITY);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(
+                Lists.newArrayList(locker1, locker2));
+        Bag bag = new Bag();
+        primaryLockerRobot.save(bag);
+        Ticket fakeTicket = new Ticket();
+
+        Assertions.assertThrows(InvalidTicketException.class, () -> primaryLockerRobot.pickUp(fakeTicket));
+
+    }
 }
