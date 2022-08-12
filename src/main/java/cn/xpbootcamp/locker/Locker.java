@@ -26,4 +26,8 @@ public class Locker {
         }
         return bags.remove(ticket);
     }
+
+    public int getAvailableCapacity() {
+        return availableCapacity;
+    }
 }
