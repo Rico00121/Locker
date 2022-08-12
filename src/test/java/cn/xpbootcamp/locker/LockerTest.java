@@ -3,7 +3,7 @@ package cn.xpbootcamp.locker;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class DemoTest {
+public class LockerTest {
     //这个测试文件只是一个demo，仅供参考，提交代码时需要删除
 
     @Test
