@@ -10,11 +10,15 @@ public class SmartLockerRobot {
     }
 
     public Ticket save(Bag bag) {
+        return getMaxAvailableCapacityLocker().save(bag);
+    }
+
+    private Locker getMaxAvailableCapacityLocker() {
         Locker maxAvailableCapacityLocker = lockers.get(0);
         for (Locker locker : lockers) {
             if (locker.getAvailableCapacity()> maxAvailableCapacityLocker.getAvailableCapacity())
                 maxAvailableCapacityLocker=locker;
         }
-        return maxAvailableCapacityLocker.save(bag);
+        return maxAvailableCapacityLocker;
     }
 }
