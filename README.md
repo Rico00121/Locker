@@ -45,3 +45,25 @@
 3. 管理两个Locker，当两个都没有容量，存包 失败 给提示
 4. 管理两个Locker，当拿一个有效的票，取包成功
 5. 管理两个Locker，当拿一个假的票，取保失败 提示非法票据
+
+
+### 需求澄清总结3：
+需求：作为一个聪明的储物柜机器人，我能够将包存在可用容量最多的储物柜，并可以取出
+需求澄清：
+1. PrimaryLockerRobot存包是按照locker顺序存包
+2. PrimaryLockerRobot在某个Locker内存包的位置是随机的
+3. 报错信息和Locker是一致的
+4. PrimaryLockerRobot至少管理一个Locker
+5. PrimaryLockerRobot会回收取过包的票据
+6. SmartLockerRobot可以在可用容量最多的储物柜中存包
+   Note：
+   在Locker的基础上继续完善，不需要重新创建仓库
+
+### tasking
+1. SmartLockerRobot管理两个Locker，当两个都有容量第一个可用3 第二个可用2，存入第一个 反票
+2. SmartLockerRobot管理两个Locker，当两个都有容量第一个可用2 第二个可用3，存入第二个 反票
+3. SmartLockerRobot管理两个Locker，当两个可用都为2，存入第二个 反票
+4. SmartLockerRobot管理两个Locker，可用都为0，存包失败 提示满
+5. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， SmartLockerRobot拿到一张由PrimaryLockerRobot存包返回的票，拿到包
+6. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， SmartLockerRobot拿到一张由自己存包返回的票，拿到包
+7. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， PrimaryLockerRobot拿到一张由SmartLockerRobot存包返回的票，拿到包
