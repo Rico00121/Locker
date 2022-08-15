@@ -29,4 +29,16 @@ public class SmartLockerRobotTest {
         Assertions.assertTrue(secondLocker.contains(ticket));
 
     }
+
+    @Test
+    public void should_saved_to_first_when_both_2_available_when_smart_robot_save_bag() {
+        Locker firstLocker = new Locker(2);
+        Locker secondLocker = new Locker(2);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Lists.newArrayList(firstLocker, secondLocker));
+        Bag bag = new Bag();
+
+        Ticket ticket = smartLockerRobot.save(bag);
+
+        Assertions.assertTrue(firstLocker.contains(ticket));
+    }
 }
