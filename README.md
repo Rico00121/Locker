@@ -67,5 +67,4 @@
 5. SmartLockerRobot管理两个Locker，存包 反票，成功取出包
 6. SmartLockerRobot管理两个Locker，存包 使用一张假票取，提示不合理票据
 7. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， SmartLockerRobot拿到一张由PrimaryLockerRobot存包返回的票，拿到包
-8. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， SmartLockerRobot拿到一张由自己存包返回的票，拿到包
 9. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， PrimaryLockerRobot拿到一张由SmartLockerRobot存包返回的票，拿到包
