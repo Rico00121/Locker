@@ -4,6 +4,8 @@ import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 public class SmartLockerRobotTest {
     @Test
     public void should_saved_to_first_capacity_locker_when_first_locker_is_3_and_second_is_2_when_smart_robot_save_bag() {
@@ -47,5 +49,18 @@ public class SmartLockerRobotTest {
         SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Lists.newArrayList(firstLocker, secondLocker));
 
         Assertions.assertThrows(LockerIsFullException.class, () -> smartLockerRobot.save(new Bag()));
+    }
+    @Test
+    public void should_return_bag_when_smart_robot_pick_up() {
+        Locker firstLocker = new Locker(2);
+        Locker secondLocker = new Locker(2);
+        ArrayList<Locker> lockers = Lists.newArrayList(firstLocker, secondLocker);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(lockers);
+
+        Bag bag = new Bag();
+
+        Ticket ticket = smartLockerRobot.save(bag);
+
+        Assertions.assertSame(bag, smartLockerRobot.pickUp(ticket));
     }
 }
