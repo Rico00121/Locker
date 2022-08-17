@@ -76,4 +76,19 @@ public class SmartLockerRobotTest {
 
         Assertions.assertThrows(InvalidTicketException.class, () -> smartLockerRobot.pickUp(fakeTicket));
     }
+
+    @Test
+    public void should_return_bag_when_primary_robot_save_and_smart_robot_pick_up() {
+        Locker firstLocker = new Locker(2);
+        Locker secondLocker = new Locker(2);
+        ArrayList<Locker> lockers = Lists.newArrayList(firstLocker, secondLocker);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(lockers);
+        PrimaryLockerRobot primaryLockerRobot = new PrimaryLockerRobot(lockers);
+
+        Bag bag = new Bag();
+
+        Ticket ticket = primaryLockerRobot.save(bag);
+
+        Assertions.assertSame(bag, smartLockerRobot.pickUp(ticket));
+    }
 }
