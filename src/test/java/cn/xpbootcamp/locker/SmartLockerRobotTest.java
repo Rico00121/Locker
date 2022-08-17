@@ -54,8 +54,7 @@ public class SmartLockerRobotTest {
     public void should_return_bag_when_smart_robot_pick_up() {
         Locker firstLocker = new Locker(2);
         Locker secondLocker = new Locker(2);
-        ArrayList<Locker> lockers = Lists.newArrayList(firstLocker, secondLocker);
-        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(lockers);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Lists.newArrayList(firstLocker, secondLocker));
 
         Bag bag = new Bag();
 
@@ -68,8 +67,7 @@ public class SmartLockerRobotTest {
     public void should_throw_exception_when_smart_robot_pick_up_by_fake_ticket() {
         Locker firstLocker = new Locker(2);
         Locker secondLocker = new Locker(2);
-        ArrayList<Locker> lockers = Lists.newArrayList(firstLocker, secondLocker);
-        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(lockers);
+        SmartLockerRobot smartLockerRobot = new SmartLockerRobot(Lists.newArrayList(firstLocker, secondLocker));
 
         smartLockerRobot.save(new Bag());
         Ticket fakeTicket = new Ticket();
