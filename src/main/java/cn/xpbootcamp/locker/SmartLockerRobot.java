@@ -27,6 +27,6 @@ public class SmartLockerRobot {
             if (locker.contains(ticket))
                 return locker.pickUpBy(ticket);
         }
-        return null;
+        throw new InvalidTicketException();
     }
 }
