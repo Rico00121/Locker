@@ -24,6 +24,7 @@ public class Locker {
         if (ticket == null || !bags.containsKey(ticket)) {
             throw new InvalidTicketException();
         }
+        availableCapacity++;
         return bags.remove(ticket);
     }
 

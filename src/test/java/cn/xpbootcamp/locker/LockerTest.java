@@ -34,6 +34,7 @@ public class LockerTest {
         Bag pickUpBag = locker.pickUpBy(ticket);
 
         Assertions.assertEquals(savedBag,pickUpBag);
+        Assertions.assertEquals(locker.getAvailableCapacity(),1);
     }
 
     @Test
