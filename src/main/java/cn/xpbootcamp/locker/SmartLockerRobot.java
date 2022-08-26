@@ -2,13 +2,13 @@ package cn.xpbootcamp.locker;
 
 import java.util.List;
 
-public class SmartLockerRobot {
+public class SmartLockerRobot extends LockerRobotBase{
 
-    private final List<Locker> lockers;
-    public SmartLockerRobot(List<Locker> lockers) {
-        this.lockers = lockers;
+    protected SmartLockerRobot(List<Locker> lockers) {
+        super(lockers);
     }
 
+    @Override
     public Ticket save(Bag bag) {
         return getMaxAvailableCapacityLocker().save(bag);
     }
@@ -20,13 +20,5 @@ public class SmartLockerRobot {
                 maxAvailableCapacityLocker=locker;
         }
         return maxAvailableCapacityLocker;
-    }
-
-    public Bag pickUp(Ticket ticket) {
-        for (Locker locker: lockers) {
-            if (locker.contains(ticket))
-                return locker.pickUpBy(ticket);
-        }
-        throw new InvalidTicketException();
     }
 }

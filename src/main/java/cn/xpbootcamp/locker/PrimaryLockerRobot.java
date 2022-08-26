@@ -2,25 +2,17 @@ package cn.xpbootcamp.locker;
 
 import java.util.List;
 
-public class PrimaryLockerRobot {
-    private final List<Locker> lockers;
+public class PrimaryLockerRobot extends LockerRobotBase{
     public PrimaryLockerRobot(List<Locker> lockers) {
-        this.lockers = lockers;
+        super(lockers);
     }
 
+    @Override
     public Ticket save(Bag bag) {
         for (Locker locker : lockers) {
             if (locker.getAvailableCapacity()>0)
                 return locker.save(bag);
         }
         throw new LockerIsFullException();
-    }
-
-    public Bag pickUp(Ticket ticket) {
-        for (Locker locker: lockers) {
-            if (locker.contains(ticket))
-                return locker.pickUpBy(ticket);
-        }
-        throw new InvalidTicketException();
     }
 }
