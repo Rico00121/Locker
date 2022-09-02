@@ -67,4 +67,28 @@
 5. SmartLockerRobot管理两个Locker，存包 反票，成功取出包
 6. SmartLockerRobot管理两个Locker，存包 使用一张假票取，提示不合理票据
 7. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， SmartLockerRobot拿到一张由PrimaryLockerRobot存包返回的票，拿到包
-9. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， PrimaryLockerRobot拿到一张由SmartLockerRobot存包返回的票，拿到包
+8. SmartLockerRobot和PrimaryLockerRobot共同管理两个柜子， PrimaryLockerRobot拿到一张由SmartLockerRobot存包返回的票，拿到包
+
+### 需求澄清总结4：
+需求：作为储物柜机器人的经理，我要管理多个机器人，我可以让机器人存包，也可以自己存包
+需求澄清：
+1. LockerRobotManager至少管理一个Robot或者Locker
+2. LockerRobotManager会让Robot先存包，然后再自己存包
+3. LockerRobotManager管理的Robot/Locker按顺序存包
+
+### tasking
+1. 管理2个Locker，且均有空间，0个Robot，当manager存包，成功存入第一个locker，返回票据
+2. 管理2个Locker，0个Robot，Locker1满，当manager存包，存入第二个柜子，反票
+3. 管理2个Locker，0个Robot，Locker均满，当manager存包，提示存包失败
+4. 管理0个Locker，2个Robot，且2个robot管理的locker均有空间，让manager存包，成功由第一个robot存入，返回票
+5. 管理0个Locker，2个Robot，且第一个robot管理的locker已满，第二个robot有空，manager存包，成功由第二个存入，返回票据
+6. 管理0个Locker，2个Robot，且2个robot管理的locker均已满，manager存包，存包失败，提示储物柜已满
+7. 管理1个Locker，1个Robot，均有空间，让manager存包，成功由robot存入，返回票
+8. 管理1个Locker，1个Robot，locker有空间，让manager存包，成功存入locker，返回票
+9. 管理1个Locker，1个Robot，均满，让manager存包，成功由robot存入，存包失败，提示储物柜已满
+10. 管理2个locker，0个robot，且票有效，当manager取包，取包成功
+11. 管理2个locker，0个robot，且票无效，当manager取包，取包失败
+12. 管理0个locker，2个robot，且票有效，当manager取包，取包成功
+13. 管理0个locker，2个robot，且票无效，当manager取包，取包失败，提示无效票据
+14. 管理1个locker，1个robot，且票有效，当manager取包，取包成功
+15. 管理1个locker，1个robot，且票无效，当manager取包，取包失败，提示无效票据
